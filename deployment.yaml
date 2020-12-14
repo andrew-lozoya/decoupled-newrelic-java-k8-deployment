@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springapp-deployment
+  labels:
+    app: springapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springapp
+  template:
+    metadata:
+      labels:
+        app: springapp
+    spec:
+      containers:
+      - name: springapp
+        image: andrewlozoya/springapp:3.0
+        ports:
+        - containerPort: 8080
+        env:
+        - name: NEW_RELIC_LICENSE_KEY
+          value: ${NEW_RELIC_LICENSE_KEY}
+        - name: JAVA_OPTS
+          value: -javaagent:/opt/app/newrelic/newrelic.jar -Dnewrelic.config.file=/etc/config/newrelic.yml -Dnewrelic.config.app_name=Docker-SpringApp -Dnewrelic.config.distributed_tracing.enabled=true
+        volumeMounts:
+        - name: newrelic # newrelic agent
+          mountPath: "/opt/app/newrelic"
+        - name: config-volume 
+          mountPath: "/etc/config"
+      volumes:
+      - name: newrelic
+        hostPath:
+         path: /opt/app/newrelic
+      - name: config-volume
+        configMap:
+          # Provide the name of the ConfigMap containing the New Relic config file you want
+          # to add to the container
+          name: newrelic-config

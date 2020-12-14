@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: springapp-kubernetes-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  name: rewrite
+  namespace: default
+spec:
+  rules:
+  - host: spring-app.info
+    http:
+      paths:
+      - path: /(.*)
+        backend:
+          serviceName: springapp-deployment
+          servicePort: 8080
