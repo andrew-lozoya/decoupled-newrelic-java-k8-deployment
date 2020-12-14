@@ -193,4 +193,4 @@ curl --request GET --url http://spring-app.info
 
 The [system property](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file#System_Properties) configurations can be passed as JAVA_OPTS. Most of the given setting in the config file are setting names prefixed by `-Dnewrelic.config.` For example, the system property for the `log_level` setting is `-Dnewrelic.config.log_level=info`.
 
-However, not all options are usable in this way. Consider referencing the `newrelic.yml` location or creating a configmap where needed. [Kustomize.io](https://kustomize.io/) is also a great solution where you are cosidering a configmap with mulitple deployments.
+However, not all options are usable in this way. Consider referencing the `newrelic.yml` location or creating a configmap where needed like in this example. [Kustomize.io](https://kustomize.io/) is also a great solution where you maybe cosidering a configmap with mulitple deployment variations.
