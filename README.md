@@ -80,7 +80,7 @@ storage-provisioner                         1/1     Running     0          7m
 ```
 
 Now that our cluster is up you can validate if your volume mount is working!:
-![Minikube](https://github.com/andrew-lozoya/decoupled-newrelic-java-k8-deployment/blob/main/images/minikube.png)
+![Minikube](https://github.com/andrew-lozoya/decoupled-newrelic-java-k8-deployment/blob/master/images/minikube.png)
 
 
 ## Deploy the ConfigMap
@@ -101,7 +101,7 @@ configmap/newrelic-config created
 kubectl apply -f deployment.yaml
 ```
 
-![deployment.yaml](https://github.com/andrew-lozoya/decoupled-newrelic-java-k8-deployment/blob/main/images/deployment.png)
+![deployment.yaml](https://github.com/andrew-lozoya/decoupled-newrelic-java-k8-deployment/blob/master/images/deployment.png)
 
 **Notice:** We are passing `JAVA_OPTS` in the container spec as well defining the volume mounts that will be used to decouple the agent & config from any docker build processes.**
 
@@ -186,7 +186,7 @@ curl --request GET --url http://spring-app.info
 ```
 
 ## Verify
-![newrelic.yml](https://github.com/andrew-lozoya/decoupled-newrelic-java-k8-deployment/blob/main/images/newrelic.png)
+![newrelic.yml](https://github.com/andrew-lozoya/decoupled-newrelic-java-k8-deployment/blob/master/images/newrelic.png)
 
 
 ## System property considerations
