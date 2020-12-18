@@ -7,9 +7,14 @@ Introduction
 
 Using Minikube this project aims to demonstrate decoupling New Relic from the docker build process altogether with New Relic instrumentation best practices in mind.
 
-The example code already assumes you've set the following [`NEW_RELIC_LICENSE_KEY`](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/license-key) in the [`deployment.yaml:24`](https://github.com/andrew-lozoya/decoupled-newrelic-java-k8-deployment/blob/27c317b590addd5b6c9c67d8d78de0f2ac8818df/deployment.yaml#L24).
 
-It is also assumed you have defined a New Relic directory with the java agent unpacked. We will use this location as the mount point to decouple the `newrelic.jar` from the docker build process. If you need to download the agent please see: 
+## Getting Started
+
+1) You need a New Relic account and license key. You can create one on https://newrelic.com/signup
+
+2) Deploy a Kubernetes secret with your New Relic license key: `kubectl create secret generic newrelic-secret --from-literal=new_relic_license_key='[[NEW RELIC LICENSE KEY]]'`
+
+3) The example code already assumes you've have a defined a New Relic directory with the java agent unpacked. We will use this location as the mount point to decouple the `newrelic.jar` from the docker build process. If you need to download the agent please see: 
 
 * Start a command-line session.
 * Change to your mount directory where you can download the zip file.
