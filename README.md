@@ -22,7 +22,7 @@ Using Minikube this project aims to demonstrate decoupling New Relic from the do
 
 ```bash
 $ curl -O https://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java.zip
-% Unzip newrelic-java.zip
+$ Unzip newrelic-java.zip
 ```
 
 **OPTIONAL:** You can build the application using Maven>=3.8.0
