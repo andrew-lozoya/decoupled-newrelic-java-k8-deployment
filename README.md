@@ -21,8 +21,8 @@ Using Minikube this project aims to demonstrate decoupling New Relic from the do
 * Execute this curl commands:
 
 ```bash
-curl -O https://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java.zip
-Unzip newrelic-java.zip
+$ curl -O https://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java.zip
+% Unzip newrelic-java.zip
 ```
 
 **OPTIONAL:** You can build the application using Maven>=3.8.0
@@ -50,7 +50,7 @@ $ minikube start --container-runtime=docker --kubernetes-version=v1.18.9 --mount
 If you are already running minikube you can mount a volume retroactively:
 
 ```bash
-nohup minikube mount $HOME/NewRelic/java:/opt/app/newrelic &
+$ nohup minikube mount $HOME/NewRelic/java:/opt/app/newrelic &
 ```
 
 ## Enable the Ingress controller:
@@ -58,13 +58,13 @@ nohup minikube mount $HOME/NewRelic/java:/opt/app/newrelic &
 1. To enable the NGINX Ingress controller, run the following command:
 
 ```bash
-minikube addons enable ingress
+$ minikube addons enable ingress
 ```
 
 2. Verify that the NGINX Ingress controller is running
 
 ```bash
-kubectl get pods -n kube-system
+$ kubectl get pods -n kube-system
 ```
 
 **Note:** This can take up to a minute.
@@ -91,7 +91,7 @@ Now that our cluster is up you can validate if your volume mount is working!:
 ## Deploy the ConfigMap
 1. Create a ConfigMap using the following command:
 ```bash
-kubectl apply -f configmap.yaml
+$ kubectl apply -f configmap.yaml
 ```
 
 Output:
@@ -103,7 +103,7 @@ configmap/newrelic-config created
 
 1. Create a Deployment using the following command:
 ```bash
-kubectl apply -f deployment.yaml
+$ kubectl apply -f deployment.yaml
 ```
 
 ![deployment.yaml](https://github.com/andrew-lozoya/decoupled-newrelic-java-k8-deployment/blob/master/images/deployment.png)
@@ -117,7 +117,7 @@ deployment.apps/springapp-deployment created
 
 2. Expose the Deployment:
 ```bash
-kubectl expose deployment springapp-deployment --type=NodePort --port=8080
+$ kubectl expose deployment springapp-deployment --type=NodePort --port=8080
 ```
 
 Output:
@@ -127,7 +127,7 @@ service/springapp-deployment exposed
 
 3. Verify the Service is created and is available on a node port:
 ```bash
-kubectl get service springapp-deployment
+$ kubectl get service springapp-deployment
 ```
 
 Output:
@@ -150,7 +150,7 @@ http://192.168.64.18:32288
 
 1. Create the Ingress resource by running the following command:
 ```bash
-kubectl apply -f ingress.yaml
+$ kubectl apply -f ingress.yaml
 ```
 
 Output:
@@ -160,7 +160,7 @@ ingress.networking.k8s.io/rewrite configured
 
 2. Verify the IP address is set:
 ```bash
-kubectl get ingress
+$ kubectl get ingress
 ```
 
 Note: This can take a couple of minutes.
@@ -187,7 +187,7 @@ Browser: http://spring-app.info
 alternatively, 
 
 ``` bash
-curl --request GET --url http://spring-app.info
+$ curl --request GET --url http://spring-app.info
 ```
 
 ## Verify
