@@ -21,7 +21,10 @@ spec:
         - containerPort: 8080
         env:
         - name: NEW_RELIC_LICENSE_KEY
-          value: ${NEW_RELIC_LICENSE_KEY}
+          valueFrom:
+            secretKeyRef:
+              name: newrelic-secret
+              key: new_relic_license_key
         - name: JAVA_OPTS
           value: -javaagent:/opt/app/newrelic/newrelic.jar -Dnewrelic.config.file=/etc/config/newrelic.yml -Dnewrelic.config.app_name=Docker-SpringApp -Dnewrelic.config.distributed_tracing.enabled=true
         volumeMounts:
