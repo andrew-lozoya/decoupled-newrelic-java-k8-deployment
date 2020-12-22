@@ -5,8 +5,15 @@ Introduction
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![New Relic Java Agent](https://img.shields.io/badge/Java_Agent-v6.2.1-0ab0bf?logo=image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHBhdGggZD0iTTYzLjUzIDI1LjE0NWMtMy4wMDMtMTMuOC0xOS41NS0yMS45MTQtMzYuOTY2LTE4LjEzUy0yLjUzIDI1LjA2LjQ3IDM4Ljg1NHMxOS41NSAyMS45MTggMzYuOTYyIDE4LjEzIDI5LjA5OC0xOC4wMjcgMjYuMS0zMS44NHpNMzIuMDAyIDQ0LjcyYTEyLjcyIDEyLjcyIDAgMCAxLTguOTk0LTIxLjcxNCAxMi43MiAxMi43MiAwIDAgMSAyMS43MTQgOC45OTRjMCA3LjAyNS01LjY5NSAxMi43Mi0xMi43MiAxMi43MnoiIGZpbGw9IiMwMDhjOTkiLz48cGF0aCBkPSJNMzQuODEzIDE0LjE5MmMtMTAuMDg2LjAwMi0xOC4yNiA4LjE4LTE4LjI2IDE4LjI2NnM4LjE3OCAxOC4yNiAxOC4yNjQgMTguMjZTNTMuMDggNDIuNTQgNTMuMDggMzIuNDU1YzAtNC44NDQtMS45MjUtOS41LTUuMzUtMTIuOTE1cy04LjA3Mi01LjM1LTEyLjkxNi01LjM0OHpNMzEuOTk4IDQzLjFhMTEuMTEgMTEuMTEgMCAwIDEtNy44NTYtMTguOTY2IDExLjExIDExLjExIDAgMCAxIDE4Ljk2NiA3Ljg1NmMwIDYuMTM0LTQuOTcyIDExLjEwOC0xMS4xMDYgMTEuMXoiIGZpbGw9IiM3MGNjZDMiLz48L3N2Zz4=)](https://docs.newrelic.com/docs/release-notes/agent-release-notes/java-release-notes/java-agent-621)
  [![Docker Image Size](https://img.shields.io/docker/image-size/andrewlozoya/springapp)](https://hub.docker.com/layers/129577024/andrewlozoya/springapp/3.0/images/sha256-ab24090e681a19988f62ab7c73d69693e7677f15c3887758562ab2f5fa3af71b?context=explore) 
 
-Using Minikube this project aims to demonstrate decoupling New Relic from the docker build process altogether with New Relic instrumentation best practices in mind.
+Using Minikube this project aims to demonstrate decoupling New Relic from the docker build process altogether with New Relic instrumentation best practices in mind. This concept would effectively allow you to reduce toil and be more flexible in your deployment workflows. Since we are using Minikube this project will focus on `hostPath` but can easily be applied to various other types of volumes like:
 
+    AWS EBS/EFS
+    azureDisk
+    gcePersistentDisk
+    etc.
+    
+  
+![PVC](https://github.com/andrew-lozoya/decoupled-newrelic-java-k8-deployment/blob/master/images/pvc.png)
 
 ## Getting Started
 
