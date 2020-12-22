@@ -7,10 +7,10 @@ Introduction
 
 Using Minikube this project aims to demonstrate decoupling New Relic from the docker build process altogether with New Relic instrumentation best practices in mind. This concept would effectively allow you to reduce toil and be more flexible in your deployment workflows. Since we are using Minikube this project will focus on `hostPath` but can easily be applied to various other types of volumes like:
 
-    AWS EBS/EFS
-    azureDisk
-    gcePersistentDisk
-    etc.
+* AWS EBS/EFS
+* azureDisk
+* gcePersistentDisk
+* etc.
     
   
 ![PVC](https://github.com/andrew-lozoya/decoupled-newrelic-java-k8-deployment/blob/master/images/pvc.png)
